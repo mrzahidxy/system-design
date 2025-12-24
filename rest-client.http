@@ -1,0 +1,35 @@
+### DHL event (routes to dhlService)
+POST http://localhost:3000/shipments/events
+Content-Type: application/json
+
+{
+  "carrierCode": "DHL",
+  "trackingId": "DHL-123",
+  "payload": {
+    "status": "IN_TRANSIT"
+  }
+}
+
+### FEDEX event (routes to fedexService)
+POST http://localhost:3000/shipments/events
+Content-Type: application/json
+
+{
+  "carrierCode": "FEDEX",
+  "trackingId": "FDX-456",
+  "payload": {
+    "status": "DELIVERED"
+  }
+}
+
+### Unknown carrier (routes to defaultService)
+POST http://localhost:3000/shipments/events
+Content-Type: application/json
+
+{
+  "carrierCode": "UNKNOWN",
+  "trackingId": "UNK-789",
+  "payload": {
+    "status": "CREATED"
+  }
+}
